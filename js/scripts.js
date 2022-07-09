@@ -1,18 +1,37 @@
-scripts.js
-alert('Hello world');
-var favoriteFood = 'Pizza';
-document.write(favoriteFood);
+let favoriteFood = 'Pizza'
+document.write(favoriteFood)
 /*
-var pokemonList = [];
-var type = ["grass","poison","fire","water"];
-let pokemonList[0] {
-  name = "bulbasaur";
-  height = 7;
-  type = type[0];
-}
-let pokemonList[1] {
-  name = "squirtle";
-  height = 5;
-  type = type[3];
+let pokemonList = [
+    {
+        name: 'Squirtle',
+        height: 1.1,
+        types: [
+            'WATER'
+        ]
+    },
+    {   
+        name: 'Pikachu',
+        height: 0.4,
+        types: [
+            'ELECTRIC'
+        ]
+
+    },
+    {
+        name: 'Bulbasaur',
+        height: 0.5,
+        types: [
+            'GRASS', 
+            'POISON'
+        ]
+
+    }
+];
+for (let i=0; i<pokemonList.length; i++) {
+    if (pokemonList[i].height>1) {
+        document.write('<p>' + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') - Wow, that\'s big!')
+    } else {
+        document.write('<p>' + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')</p>')
+    }
 }
 */
