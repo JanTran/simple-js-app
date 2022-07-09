@@ -2,6 +2,7 @@ scripts.js
 alert('Hello world');
 var favoriteFood = 'Pizza';
 document.write(favoriteFood);
+/*
 var pokemonList = [];
 var type = ["grass","poison","fire","water"];
 let pokemonList[0] {
@@ -14,3 +15,4 @@ let pokemonList[1] {
   height = 5;
   type = type[3];
 }
+*/
