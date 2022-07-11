@@ -32,4 +32,23 @@ for (let i=0; i<pokemonList.length; i++) {
         document.write('<p>' + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')</p>')
     }
 }
+let pokemonRepository = (function () {
+    console.log('Init pokemonRepo...')
+    let privatePokemonList = [];
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
+    let input = $("input");
+    input.on("input", filterList);
+
+    function add(pokemon) {
+        if (typeof pokemon === 'object' && 'name' in pokemon) {
+            privatePokemonList.push(pokemon);
+        } else {
+            console.log(`Pokemon is not valid!`);
+        }
+    };
+
+    function getAll() {
+        return privatePokemonList;
+    };
+}
 
