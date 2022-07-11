@@ -1,7 +1,4 @@
 alert('Hello world');
-let favoriteFood = 'Pizza'
-document.write(favoriteFood)
-/*
 let pokemonList = [
     {
         name: 'Squirtle',
@@ -35,4 +32,4 @@ for (let i=0; i<pokemonList.length; i++) {
         document.write('<p>' + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')</p>')
     }
 }
-*/
+
