@@ -23,7 +23,7 @@ let pokemonList = [
             'POISON'
         ]
  ];
-pokemonList.forEach(function(name)) {
-    console.log("Name: " + pokemonList.name + ", type: " + pokemonList.type + ", height: " + pokemonList.height);
+pokemonList.forEach(function(pokemon)) {
+    console.log("Name: " + pokemon.name + ", type: " + pokemon.type + ", height: " + pokemon.height);
 }
 
