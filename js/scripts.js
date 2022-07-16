@@ -1,5 +1,5 @@
-alert('Hello world');
-let pokemonList = [
+let pokemonRepository = (function () {
+ let pokemonList = [
     {
         name: 'Squirtle',
         height: 1.1,
@@ -22,13 +22,9 @@ let pokemonList = [
             'GRASS', 
             'POISON'
         ]
-];
-pokemonList.forEach(function(pokemon)) {
-    console.log("Name: " + pokemon.name + ", type: " + pokemon.type + ", height: " + pokemon.height);
-}
-let pokemonRepository = (function () {
-  let pokemonList = []; // empty array
-
+    ];
+    }
+     
   return {
     add: function(pokemon) {
       pokemonList.push(pokemon);
