@@ -36,6 +36,6 @@ let pokemonRepository = (function () {
 })();
 
 console.log(pokemonRepository.getAll()); // []
-pokemonRepository.add({ name: 'Pikachu' });
+pokemonRepository.add({ name: 'Gardevoir', height: '1.2', types: ['GRASS' 'POISON'] });
 console.log(pokemonRepository.getAll()); // [ { name: 'Pikachu' } ]
-
+pokemonRepository.getAll().forEach(function(pokemon){ console.log(pokemon.name) });
