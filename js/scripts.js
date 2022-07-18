@@ -24,13 +24,24 @@ let pokemonRepository = (function () {
         ]
     } 
     ];
-     
+  function addListItem(){
+   
+  }
   return {
     add: function(pokemon) {
       pokemonList.push(pokemon);
     },
     getAll: function() {
       return pokemonList;
+    },
+    addListItem: function(pokemon) {
+      let pokemonList = document.querySelector(".pokemon-list");
+      let listpokemon = document.createElement("li");
+      let button = document.createElement("button");
+      button.innerText = pokemon.name;
+      button.classList.add("button-class");
+      listpokemon.appendChild(button);
+      pokemonList.appendChild(listpokemon);
     }
   };
 })();
@@ -39,9 +50,5 @@ console.log(pokemonRepository.getAll()); // []
 pokemonRepository.add({ name: 'Gardevoir', height: '1.2', types: ['GRASS', 'POISON'] });
 console.log(pokemonRepository.getAll()); // [ { name: 'Pikachu' } ]
 pokemonRepository.getAll().forEach(function(pokemon){ 
-  let pokemonList = document.querySelector(".pokemon-list");
-  let listpokemon = document.createElement("li");
-  let button = document.createElement("button");
-  button.innerText = "placeholder";
-  button.classList.add("button-class");
+  pokemonRepository.addListItem(pokemon);
 });
