@@ -22,8 +22,8 @@ let pokemonRepository = (function () {
             'GRASS', 
             'POISON'
         ]
+    } 
     ];
-    }
      
   return {
     add: function(pokemon) {
@@ -36,6 +36,6 @@ let pokemonRepository = (function () {
 })();
 
 console.log(pokemonRepository.getAll()); // []
-pokemonRepository.add({ name: 'Gardevoir', height: '1.2', types: ['GRASS' 'POISON'] });
+pokemonRepository.add({ name: 'Gardevoir', height: '1.2', types: ['GRASS', 'POISON'] });
 console.log(pokemonRepository.getAll()); // [ { name: 'Pikachu' } ]
 pokemonRepository.getAll().forEach(function(pokemon){ console.log(pokemon.name) });
