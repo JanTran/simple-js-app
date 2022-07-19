@@ -1,29 +1,5 @@
 let pokemonRepository = (function () {
-    let pokemonList = [
-       {
-           name: 'Squirtle',
-           height: 1.1,
-           types: [
-               'WATER'
-           ]
-       },
-       {   
-           name: 'Pikachu',
-           height: 0.4,
-           types: [
-               'ELECTRIC'
-           ]
-   
-       },
-       {
-           name: 'Bulbasaur',
-           height: 0.5,
-           types: [
-               'GRASS', 
-               'POISON'
-           ]
-       } 
-       ];
+    let pokemonList = [];
      return {
        add: function(pokemon) {
          pokemonList.push(pokemon);
@@ -32,7 +8,10 @@ let pokemonRepository = (function () {
          return pokemonList;
        },
        showDetails: function(pokemon){
-        console.log(pokemon);
+        pokemonRepository.loadDetails(pokemon).then(function () {
+            // console.log(item);
+            showModal(pokemon);
+        });
        },
        addListItem: function(pokemon) {
          let pokemonList = document.querySelector(".pokemon-list");
@@ -45,6 +24,35 @@ let pokemonRepository = (function () {
          button.classList.add("button-class");
          listpokemon.appendChild(button);
          pokemonList.appendChild(listpokemon);
+       },
+       loadList: function(){
+        return fetch(apiUrl).then(function (response) {
+            return response.json();
+          }).then(function (json) {
+            json.results.forEach(function (item) {
+              let pokemon = {
+                name: item.name,
+                detailsUrl: item.url
+              };
+              add(pokemon);
+            });
+          }).catch(function (e) {
+            console.error(e);
+          })
+       },
+       loadDetails: function(){
+        let url = pokemon.detailsUrl;
+        return fetch(url). then(function (response) {
+          return response.json();
+        }).then(function (details) {
+          pokemon.imageUrl = details.sprites.front_default;
+          pokemon.height = details.height;
+          pokemon.weight = details.weight;
+          pokemon.types = details.types.map((type) => type.type.name).join(',');
+          pokemon.abilities = details.abilities.map((ability) => ability.ability.name).join(',');
+        }).catch(function (e) {
+          console.error(e);
+        });
        }
      };
    })();
