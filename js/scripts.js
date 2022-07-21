@@ -86,7 +86,7 @@ pokemonRepository.getAll().forEach(function (pokemon) {
          let listpokemon = document.createElement("li");
          let button = document.createElement("button");
          button.addEventListener('click', function (pokemon) {
-            console.log(event);
+            console.log(pokemon.name);
           });
          button.innerText = pokemon.name;
          button.classList.add("button-class");
