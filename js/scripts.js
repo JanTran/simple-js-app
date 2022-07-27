@@ -1,29 +1,5 @@
 let pokemonRepository = (function () {
-     let repository = [
-       {
-           name: 'Squirtle',
-           height: 1.1,
-           types: [
-               'WATER'
-           ]
-       },
-       {   
-           name: 'Pikachu',
-           height: 0.4,
-           types: [
-               'ELECTRIC'
-           ]
-
-       },
-       {
-           name: 'Bulbasaur',
-           height: 0.5,
-           types: [
-               'GRASS', 
-               'POISON'
-           ]
-       } 
-       ];
+     let repository = [];
        function add(pokemon) {
     if (
       typeof pokemon === "object" &&
@@ -54,11 +30,42 @@ let pokemonRepository = (function () {
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
   }
+  async function loadList(){
+        try {
+               const response = await fetch('https://pokeapi.co/api/v2/pokemon/');
+               const json = await response.json();
+               json.results.forEach(function (item) {
+                   let pokemon = {
+                       name: item.name,
+                       detailsUrl: item.url
+                   };
+                   add(pokemon);
+               });
+           } catch (e) {
+               console.error(e);
+           }
+       }
+   async function loadDetails(){
+        let url = pokemon.detailsUrl;
+        try {
+               const response = await fetch('https://pokeapi.co/api/v2/pokemon/');
+               const details = await response.json();
+               pokemon.imageUrl = details.sprites.front_default;
+               pokemon.height = details.height;
+               pokemon.weight = details.weight;
+               pokemon.types = details.types.map((type) => type.type.name).join(',');
+               pokemon.abilities = details.abilities.map((ability) => ability.ability.name).join(',');
+           } catch (e) {
+               console.error(e);
+           }
+     };
   return {
     add: add,
     getAll: getAll,
     addListItem: addListItem,
-    showDetails: showDetails
+    showDetails: showDetails,
+    loadList: loadList,
+    loadDetails: loadDetails
   };
 })();
 
