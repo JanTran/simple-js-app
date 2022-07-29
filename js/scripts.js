@@ -36,7 +36,7 @@ let pokemonRepository = (function () {
             return response.json();
         }).then(function (json){
             json.results.forEach(function(pokemon){
-                name: pokemon.name,
+                name: pokemon.name
                 detailsUrl: pokemon.url
                 add(pokemon);
             });
