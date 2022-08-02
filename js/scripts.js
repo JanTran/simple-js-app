@@ -46,13 +46,14 @@ let pokemonRepository = (function () {
     }
 
     function loadDetails(pokemon) {
-        let url = pokemon.detailsUrl;
+        let url = pokemon.url;
         return fetch(url).then(function(response){
             return response.json();
         }).then(function(details){
             pokemon.imageUrl = details.sprites.front_default;
             pokemon.height = details.height;
             pokemon.types = details.types;
+            console.log('Pokemon Details:', details);
         }).catch(function(e){
             console.error(e);
         })
