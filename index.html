@@ -8,9 +8,48 @@
         <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
   <body>
-      <h1 id="loading-message"></h1>
-      <ul class="pokemon-list"></ul>
-      <div id="modal-container"></div>
+      <body class="container page-container">
+
+    <header class="page-header">
+      <nav class="navbar navbar-expand-md bg-dark fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html"></a>
+          <img src="img/poke_logo.svg" class="page-header__item" width="120" alt="pokemon text logo">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="which pokemon?" aria-label="Search">
+            <button class="btn btn-secondary" type="submit">search</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <!--pokemon list-->
+        <div>
+        <ul class='list-group-horizontal'></ul>
+
+    <!--modal here-->
+        <div class="modal fade" id="pokemon-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">pokemon name</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
       
       <script src="js/promise-polyfill.js"></script>
       <script src="js/fetch-polyfill.js"></script>
