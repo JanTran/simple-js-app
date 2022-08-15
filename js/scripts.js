@@ -16,12 +16,12 @@ let pokemonRepository = (function () {
     function addListItem(pokemon) {
       let pokemonList = document.querySelector('.list-group-horizontal');
       let listItem = document.createElement('li');
-      listItem.classList.add("group-list-item");
+      listItem.classList.add('group-list-item');
       let buttonItem = document.createElement('button');
       buttonItem.classList.add("pokemonButton");
       buttonItem.innerText = pokemon.name;
-      buttonItem.setAttribute("data-toggle", "modal");
-      buttonItem.setAttribute("data-target", "#pokemon-modal");
+      buttonItem.setAttribute('data-toggle', 'modal');
+      buttonItem.setAttribute('data-target', '#pokemon-modal');
       $(buttonItem).addClass('button-class btn-block btn m1');
       buttonItem.classList.add('button-class');
       listItem.appendChild(buttonItem);
